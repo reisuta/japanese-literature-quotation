@@ -9,35 +9,35 @@ quotes = [
     author: '夏目漱石',
     work: '草枕',
     era: '明治',
-    tags: [modern, novel]
+    tags: [ modern, novel ]
   },
   {
     content: '吾輩は猫である。名前はまだ無い。',
     author: '夏目漱石',
     work: '吾輩は猫である',
     era: '明治',
-    tags: [modern, novel]
+    tags: [ modern, novel ]
   },
   {
     content: '人間は所詮ひとりなのだ。どこまでいってもひとり。それがさびしいから人を求める。これは矛盾だ。',
     author: '太宰治',
     work: '人間失格',
     era: '昭和',
-    tags: [modern, novel]
+    tags: [ modern, novel ]
   },
   {
     content: '行く河の流れは絶えずして、しかも本の水にあらず。よどみに浮かぶうたかたは、かつ消えかつ結びて、久しくとどまりたるためしなし。',
     author: '鴨長明',
     work: '方丈記',
     era: '鎌倉',
-    tags: [classic]
+    tags: [ classic ]
   },
   {
     content: '世の中にたえて桜のなかりせば春の心はのどけからまし',
     author: '在原業平',
     work: '古今和歌集',
     era: '平安',
-    tags: [classic, poetry]
+    tags: [ classic, poetry ]
   }
 ]
 
@@ -48,7 +48,7 @@ quotes.each do |quote_data|
     work: quote_data[:work],
     era: quote_data[:era]
   )
-  
+
   quote_data[:tags].each do |tag|
     QuoteTag.create(quote: quote, tag: tag)
   end
