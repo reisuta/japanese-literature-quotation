@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mysql:8.0.41-debian
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: japanese_literature_api_development
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    platform: linux/amd64
+  api:
+    build:
+      context: .
+    command: /bin/bash -c 'rm -rf tmp/pids/server.pid; bundle exec rails s -p 4000 -b 0.0.0.0'
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
