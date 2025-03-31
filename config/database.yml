@@ -51,9 +51,15 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: app_production
-    username: app
-    password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+    <% if ENV['MYSQL_URL'].present? || ENV['DATABASE_URL'].present? %>
+    url: <%= ENV['MYSQL_URL'] || ENV['DATABASE_URL'] %>
+    <% else %>
+    database: <%= ENV.fetch("MYSQL_DATABASE", "app_production") %>
+    username: <%= ENV.fetch("MYSQLUSER", "root") %>
+    password: <%= ENV.fetch("MYSQLPASSWORD", "") %>
+    host: <%= ENV.fetch("MYSQLHOST", "localhost") %>
+    port: <%= ENV.fetch("MYSQLPORT", "3306") %>
+    <% end %>
   cache:
     <<: *primary_production
     database: app_production_cache
