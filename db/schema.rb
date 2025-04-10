@@ -23,6 +23,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_040140) do
   create_table "jukugos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "expression", null: false
     t.string "reading"
+    t.string "reading_alphabet"
     t.text "meaning"
     t.string "difficulty"
     t.text "example_sentences"
@@ -68,6 +69,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_040140) do
 
   create_table "quotes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
+    t.text "content_alphabet"
     t.string "source"
     t.string "author"
     t.string "work"

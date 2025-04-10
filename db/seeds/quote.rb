@@ -6,6 +6,7 @@ novel = Tag.create(name: '小説')
 quotes = [
   {
     content: '山路を登りながら、こう考えた。智に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。',
+    content_alphabet: 'yamamitiwonoborinagara,koukangaeta.tinihatarakebakadogatatu.jounisaosasebanagasareru.iziwotoosebakyuukutuda.tokakunihitonoyohasuminikui.',
     author: '夏目漱石',
     work: '草枕',
     era: '明治',
@@ -13,6 +14,7 @@ quotes = [
   },
   {
     content: '吾輩は猫である。名前はまだ無い。',
+    content_alphabet: 'wagahaihanekodearu.namaehamadanai.',
     author: '夏目漱石',
     work: '吾輩は猫である',
     era: '明治',
@@ -20,6 +22,7 @@ quotes = [
   },
   {
     content: '人間は所詮ひとりなのだ。どこまでいってもひとり。それがさびしいから人を求める。これは矛盾だ。',
+    content_alphabet: 'ningenhasyosenhitorinanoda.dokomadeittemohitori.soregasabisiikarahitowomotomeru.korehamujunda.',
     author: '太宰治',
     work: '人間失格',
     era: '昭和',
@@ -27,6 +30,7 @@ quotes = [
   },
   {
     content: '行く河の流れは絶えずして、しかも本の水にあらず。よどみに浮かぶうたかたは、かつ消えかつ結びて、久しくとどまりたるためしなし。',
+    content_alphabet: 'yukukawanonagarehataezusite,sikamomotonomizuniarazu.yodominiukabuutakataha,katukiekatumusubite,hisasikutodomaritarutamesinasi.',
     author: '鴨長明',
     work: '方丈記',
     era: '鎌倉',
@@ -34,6 +38,7 @@ quotes = [
   },
   {
     content: '世の中にたえて桜のなかりせば春の心はのどけからまし',
+    content_alphabet: 'yononakanitaetesakuranonakarisebaharunokokorohanodokekaramsi',
     author: '在原業平',
     work: '古今和歌集',
     era: '平安',
@@ -44,6 +49,7 @@ quotes = [
 quotes.each do |quote_data|
   quote = Quote.create(
     content: quote_data[:content],
+    content_alphabet: quote_data[:content_alphabet],
     author: quote_data[:author],
     work: quote_data[:work],
     era: quote_data[:era]

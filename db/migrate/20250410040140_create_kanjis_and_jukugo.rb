@@ -19,6 +19,7 @@ class CreateKanjisAndJukugo < ActiveRecord::Migration[8.0]
     create_table :jukugos, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
       t.string :expression, null: false  # 四字熟語や熟語
       t.string :reading               # 読み方
+      t.string :reading_alphabet     # 読み方(タイピング用)
       t.text :meaning                # 意味
       t.string :difficulty           # 難易度（漢検一級相当など）
       t.text :example_sentences      # 例文

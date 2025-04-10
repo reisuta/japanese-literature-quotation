@@ -14,6 +14,7 @@ jukugos_data = [
   {
     expression: "蜿蜒曲折",
     reading: "えんえんきょくせつ",
+    reading_alphabet: "enenkyokusetu",
     meaning: "道などが曲がりくねっている様子",
     difficulty: "漢検1級",
     example_sentences: "蜿蜒曲折する山道を進んでいくと、突然眼前に美しい景色が広がった。",
@@ -22,6 +23,7 @@ jukugos_data = [
   {
     expression: "魑魅魍魎",
     reading: "ちみもうりょう",
+    reading_alphabet: "timimouryou",
     meaning: "山や森に棲むとされる妖怪の総称。転じて、世の中の怪しげな者たち。",
     difficulty: "漢検1級",
     example_sentences: "山奥には魑魅魍魎が潜んでいるという伝説がある。",
@@ -30,6 +32,7 @@ jukugos_data = [
   {
     expression: "諄諄懇懇",
     reading: "じゅんじゅんこんこん",
+    reading_alphabet: "junjunkonkon",
     meaning: "丁寧に繰り返し教えること",
     difficulty: "漢検1級",
     example_sentences: "先生は諄諄懇懇と基本の大切さを説いた。",
@@ -38,6 +41,7 @@ jukugos_data = [
   {
     expression: "鬱々悶々",
     reading: "うつうつもんもん",
+    reading_alphabet: "utuutumonmon",
     meaning: "気分が晴れず、沈んだ様子",
     difficulty: "漢検1級",
     example_sentences: "彼は失敗以来、鬱々悶々とした日々を過ごしている。",
@@ -46,6 +50,7 @@ jukugos_data = [
   {
     expression: "巍然屹立",
     reading: "ぎぜんきつりつ",
+    reading_alphabet: "gizenkituritu",
     meaning: "高くそびえ立つ様子",
     difficulty: "漢検1級",
     example_sentences: "その城は城下町を見下ろすように巍然屹立していた。",
@@ -54,6 +59,7 @@ jukugos_data = [
   {
     expression: "塵埃",
     reading: "じんあい",
+    reading_alphabet: "zinai",
     meaning: "ちり。ほこり",
     difficulty: "漢検1級",
     example_sentences: "都会の塵埃に染まる",
