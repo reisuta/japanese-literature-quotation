@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get "jukugos/index"
+  get "jukugos/show"
+  get "jukugos/new"
+  get "jukugos/create"
+  get "jukugos/edit"
+  get "jukugos/update"
+  get "jukugos/destroy"
+  get "kanjis/index"
+  get "kanjis/show"
+  get "kanjis/new"
+  get "kanjis/create"
+  get "kanjis/edit"
+  get "kanjis/update"
+  get "kanjis/destroy"
   namespace :api do
     namespace :v1 do
       resources :quotes, only: [ :index, :show ]
