@@ -41,12 +41,10 @@ module Api
       end
 
       def by_tag
-        tag = Tag.find_by(name: params[:tag])
-        if tag
-          render json: tag.kanjis, status: :ok
-        else
-          render json: { error: "タグが見つかりません" }, status: :not_found
-        end
+        tag = Tag.find(params[:id])
+        render json: tag.kanjis, status: :ok
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "タグが見つかりません" }, status: :not_found
       end
     end
   end
