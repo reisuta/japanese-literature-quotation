@@ -64,6 +64,15 @@ jukugos_data = [
     difficulty: "漢検1級",
     example_sentences: "都会の塵埃に染まる",
     tags: [ "自然", "思想", "漢検1級" ]
+  },
+  {
+    expression: "薈蔚",
+    reading: "わいうつ",
+    reading_alphabet: "waiutu",
+    meaning: "しげる。草木が盛んに茂るさま。雲がもくもくとわきおこるさま｡ 雲や霧などがたちこめてうるおいがあること",
+    difficulty: "漢検1級",
+    example_sentences: "",
+    tags: [ "自然", "思想", "漢検1級" ]
   }
 ]
 
