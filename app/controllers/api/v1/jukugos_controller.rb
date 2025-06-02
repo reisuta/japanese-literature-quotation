@@ -3,10 +3,10 @@ module Api
     class JukugosController < ApplicationController
       def index
         @jukugos = Jukugo.all
-        
+
         # Filter by difficulty if specified
         @jukugos = @jukugos.where(difficulty: params[:difficulty]) if params[:difficulty].present?
-        
+
         # For typing practice
         if params[:purpose] == "typing"
           @jukugos = @jukugos.limit(params[:limit] || 10)

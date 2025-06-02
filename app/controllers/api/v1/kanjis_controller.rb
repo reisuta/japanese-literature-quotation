@@ -3,13 +3,13 @@ module Api
     class KanjisController < ApplicationController
       def index
         @kanjis = Kanji.all
-        
+
         # Filter by grade if specified
         @kanjis = @kanjis.where(grade: params[:grade]) if params[:grade].present?
-        
+
         # Filter by difficulty if specified
         @kanjis = @kanjis.where(stroke_count: params[:stroke_count]) if params[:stroke_count].present?
-        
+
         # For typing practice
         if params[:purpose] == "typing"
           @kanjis = @kanjis.limit(params[:limit] || 10)
