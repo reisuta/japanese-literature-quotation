@@ -14,7 +14,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "without filters" do
       it "returns all kanjis" do
         get "/api/v1/kanjis", headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response.size).to eq(3)
@@ -24,7 +24,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "with grade filter" do
       it "returns kanjis filtered by grade" do
         get "/api/v1/kanjis", params: { grade: '1' }, headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response.size).to eq(2)
@@ -34,7 +34,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "with stroke_count filter" do
       it "returns kanjis filtered by stroke count" do
         get "/api/v1/kanjis", params: { stroke_count: 5 }, headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response.size).to eq(1)
@@ -44,7 +44,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "with typing purpose" do
       it "returns kanjis in typing format" do
         get "/api/v1/kanjis", params: { purpose: 'typing' }, headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response).to be_an(Array)
@@ -55,7 +55,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
       it "limits results when limit parameter is provided" do
         create_list(:kanji, 15)
         get "/api/v1/kanjis", params: { purpose: 'typing', limit: 5 }, headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response.size).to eq(5)
@@ -67,7 +67,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "when kanji exists" do
       it "returns the kanji" do
         get "/api/v1/kanjis/#{kanji1.id}", headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response['id']).to eq(kanji1.id)
@@ -78,7 +78,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "when kanji does not exist" do
       it "returns not found error" do
         get "/api/v1/kanjis/999999", headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:not_found)
         json_response = JSON.parse(response.body)
         expect(json_response['error']).to eq('漢字が見つかりません')
@@ -89,17 +89,17 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
   describe "GET /api/v1/kanjis/random" do
     it "returns a random kanji" do
       get "/api/v1/kanjis/random", headers: { 'Accept' => 'application/json' }
-      
+
       expect(response).to have_http_status(:ok)
       json_response = JSON.parse(response.body)
-      expect(json_response['id']).to be_in([kanji1.id, kanji2.id, kanji3.id])
+      expect(json_response['id']).to be_in([ kanji1.id, kanji2.id, kanji3.id ])
     end
   end
 
   describe "GET /api/v1/grades/:grade/kanjis" do
     it "returns kanjis by grade" do
       get "/api/v1/grades/1/kanjis", headers: { 'Accept' => 'application/json' }
-      
+
       expect(response).to have_http_status(:ok)
       json_response = JSON.parse(response.body)
       expect(json_response.size).to eq(2)
@@ -113,7 +113,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "when tag exists" do
       it "returns kanjis associated with the tag" do
         get "/api/v1/tags/#{tag.id}/kanjis", headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:ok)
         json_response = JSON.parse(response.body)
         expect(json_response.size).to eq(1)
@@ -124,7 +124,7 @@ RSpec.describe "Api::V1::Kanjis", type: :request do
     context "when tag does not exist" do
       it "returns not found error" do
         get "/api/v1/tags/99999/kanjis", headers: { 'Accept' => 'application/json' }
-        
+
         expect(response).to have_http_status(:not_found)
         json_response = JSON.parse(response.body)
         expect(json_response['error']).to eq('タグが見つかりません')
