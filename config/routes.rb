@@ -22,6 +22,20 @@ Rails.application.routes.draw do
       get "/eras/:era", to: "quotes#by_era"
       get "/tags/:tag", to: "quotes#by_tag"
 
+      resources :kanjis, only: [ :index, :show ]
+      get "/kanjis/random", to: "kanjis#random"
+      get "/kanjis/grades/:grade", to: "kanjis#by_grade"
+      get "/kanjis/tags/:tag", to: "kanjis#by_tag"
+
+      resources :jukugos, only: [ :index, :show ]
+      get "/jukugos/random", to: "jukugos#random"
+      get "/jukugos/difficulty/:difficulty", to: "jukugos#by_difficulty"
+      get "/jukugos/tags/:tag", to: "jukugos#by_tag"
+
+      resources :scores, only: [ :index, :show, :create ]
+      get "/leaderboard/:score_type", to: "scores#leaderboard"
+      get "/users/:user_name/stats", to: "scores#user_stats"
+
       resources :tags, only: [ :index ]
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_10_040140) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_02_021513) do
   create_table "jukugo_tags", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "jukugo_id", null: false
     t.bigint "tag_id", null: false
@@ -75,6 +75,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_040140) do
     t.string "work"
     t.string "era"
     t.string "tags"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "user_name"
+    t.string "score_type"
+    t.float "wpm"
+    t.float "accuracy"
+    t.float "time_taken"
+    t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
