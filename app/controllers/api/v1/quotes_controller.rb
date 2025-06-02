@@ -2,8 +2,13 @@ module Api
   module V1
     class QuotesController < ApplicationController
       def index
-        quotes = Quote.all
-        render json: quotes, status: :ok
+        @quotes = Quote.all
+
+        if params[:purpose] == "typing"
+          render "quotes/typing"
+        else
+          render json: @quotes, status: :ok
+        end
       end
 
       def show
